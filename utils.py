@@ -68,6 +68,7 @@ def preprocess_data(data):
     data["sibling_well"] = (data["well_family_relationship"] == "Sibling Well").astype(int)
     data["batch_concurrent_frac"] = (data['batch_frac_classification'] == "Batch-Concurrent Frac").astype(int)
 
+
     data.drop(columns=DROP_COLS, inplace=True)
 
     data.to_csv(os.path.join(os.path.dirname(__file__), "data", "preprocessed.csv"), index=False)
